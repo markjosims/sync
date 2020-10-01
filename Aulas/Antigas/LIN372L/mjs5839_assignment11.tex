@@ -1,0 +1,427 @@
+\documentclass[a4paper, 11pt]{article}
+% MLA format
+\usepackage[letterpaper]{geometry}
+%\usepackage{times}
+\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{} 
+\chead{} 
+\rhead{Simmons \thepage} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+
+%\usepackage{mdwlist}
+\usepackage{enumitem}
+\setlist{  
+    listparindent=\parindent,
+    parsep=0pt,
+}
+\title{Homework 11}
+\author{Mark Simmons}
+\date{May 8, 2020}
+
+
+% Typing in IPA
+\usepackage{tipa}
+
+% Sentence trees
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{tree-dvips}
+\tikzset{level distance=30pt,
+sibling distance=6pt,
+every tree node/.style={align=center},
+}
+
+% Glosses
+\usepackage{linguex}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+
+\item Technical
+
+    \begin{enumerate}[label=(\alph*)]
+    \item
+    % What did you buy at the store?
+    \noindent Deep Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\small \Tree
+    [.CP {}
+    [.C' $\emptyset_{[+Q]}$
+    [.TP {}
+    [.T' T\\-ed
+    [.VP [.DP$_{j}$ \edge[roof]; \node(specTP){you}; ]
+    [.V'
+      [.V' V\\buy [.DP \edge[roof]; what ] ]
+      [.PP \edge[roof]; {at the store.} ]
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \end{tikzpicture}}
+
+    \pagebreak
+
+    % What did you buy at the store?
+    \noindent Surface Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\small \Tree
+    [.CP [.DP$_{i}$ \edge[roof]; \node(specCP){What}; ]
+    [.C' \node(vC){C\\\fbox{do}-ed-$\emptyset_{[+Q]}$};
+    [.TP [.DP$_{j}$ \edge[roof]; \node(specTP){you}; ]
+    [.T' \node(traceT){T};
+    [.VP \node(specBuy){t$_{j}$};
+    [.V'
+      [.V' V\\buy \node(whTrace){t$_{i}$}; ]
+      [.PP \edge[roof]; {at the store.} ]
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \draw[dashed,->] (traceT)..controls +(south:3) and +(south:3)..(vC);
+    \draw[semithick,->] (specBuy)..controls +(south:2) and +(south:2)..(specTP);
+    \draw[dotted,->] (whTrace)..controls +(south:5) and +(south:5)..(specCP);
+    \end{tikzpicture}}
+
+    \pagebreak
+
+    \item
+    % How was the ship destroyed by hippies?
+    \noindent Deep Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\small \Tree
+    [.CP {}
+    [.C' $\emptyset_{[+Q]}$
+    [.TP {}
+    [.T' T\\-ed
+    [.VP {} % was
+    [.V' V\\be
+      [.VP [.DP$_{j}$ \edge[roof]; \node(specTP){the ship}; ]
+      [.V'
+        [.V'
+          [.V' V\\destroy {} ]
+          [.AdvP \edge[roof]; \node(specCP){how}; ]
+          ]%V'
+          [.DP \edge[roof]; {by the hippies.} ]
+      ]%V'
+      ]%VP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \end{tikzpicture}}
+
+    \pagebreak
+
+    % How was the ship destroyed by hippies?
+    \noindent Surface Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\small \Tree
+    [.CP [.AdvP \edge[roof]; \node(specCP){How}; ]
+    [.C' \node(vC){C\\be-ed-$\emptyset_{[+Q]}$};
+    [.TP [.DP$_{j}$ \edge[roof]; \node(specTP){the ship}; ]
+    [.T' \node(traceT){T};
+    [.VP {} % was
+    [.V' \node(traceV){t};
+      [.VP \node(specDestroy){t$_{j}$};
+      [.V'
+        [.V'
+          [.V' V\\destroy {} ]
+          \node(whTrace){t};
+          ]%V'
+          [.DP \edge[roof]; {by the hippies.} ]
+      ]%V'
+      ]%VP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \draw[dashed,->] (traceV)..controls +(south:1) and +(south:3)..(traceT);
+    \draw[dashed,->] (traceT)..controls +(south:3) and +(south:3)..(vC);
+    \draw[semithick,->] (specDestroy)..controls +(south:2) and +(south:4)..(specTP);
+    \draw[dotted,->] (whTrace)..controls +(south:5) and +(south:5)..(specCP);
+    \end{tikzpicture}}
+
+
+    \pagebreak
+
+    \tikzset{level distance=15pt,
+    sibling distance=3pt,
+    }
+
+    \item
+    % I asked who was expected to leave.
+    \noindent Deep Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\tiny \Tree
+    [.CP {}
+    [.C' $\emptyset_{[-Q]}$
+    [.TP {}
+    [.T' T\\-ed
+    [.VP [.DP$_{i}$ \edge[roof]; I ]
+    [.V'
+      V\\ask
+      [.CP {}
+      [.C' $\emptyset_{[+Q]}$
+      [.TP {}
+      [.T' -ed
+      [.VP {}
+      [.V'
+        V\\be
+        [.VP {}
+        [.V' V\\expected [.DP$_{j}$ \edge[roof]; who ]
+          [.CP {}
+          [.C' C\\$\emptyset_{[-Q]}$
+          [.TP {}
+          [.T' T\\to
+          [.VP [.DP$_{j}$ \edge[roof]; PRO ]
+          [.V' V\\leave {}
+          ]%V'
+          ]%VP
+          ]%T'
+          ]%TP
+          ]%C'
+          ]%CP
+        ]%V'
+        ]%VP
+      ]%V'
+      ]%VP
+      ]%T'
+      ]%TP 
+      ]%C'
+      ]%C'
+      ]%CP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \end{tikzpicture}}
+
+    \pagebreak
+
+    % I asked who was expected to leave.
+    \noindent Surface Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\tiny \Tree
+    [.CP {}
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP [.DP$_{i}$ \edge[roof]; \node(specTP){I}; ]
+    [.T' \node(traceT){};
+    [.VP \node(specAsk){t$_{i}$};
+    [.V'
+      \node(vAsk){V\\ask-ed};
+      [.CP [.DP \edge[roof]; \node(specCP){who$_{j}$}; ]
+      [.C' \node(vC){C\\be-ed-$\emptyset_{[+Q]}$};
+      [.TP \node(specAsked){t$_{j}$};
+      [.T' \node(traceEd){t};
+      [.VP {}
+      [.V'
+        \node(traceV){t};
+        [.VP {}
+        [.V' V\\expected \node(objExpectTrace){t$_{j}$};
+          [.CP {}
+          [.C' C\\$\emptyset_{[-Q]}$
+          [.TP [.DP$_{j}$ \edge[roof]; \node(specToLeave){PRO}; ]
+          [.T' T\\to
+          [.VP \node(specLeave){t$_{j}$};
+          [.V' V\\leave {}
+          ]%V'
+          ]%VP
+          ]%T'
+          ]%TP
+          ]%C'
+          ]%CP
+        ]%V'
+        ]%VP
+      ]%V'
+      ]%VP
+      ]%T'
+      ]%TP 
+      ]%C'
+      ]%C'
+      ]%CP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \draw[dashed,->] (traceV)..controls +(south:1) and +(south:3)..(traceEd);
+    \draw[dashed,->] (traceEd)..controls +(south:3) and +(south:3)..(vC);
+    \draw[dashed,->] (traceT)..controls +(south:3) and +(south:3)..(vAsk);
+    \draw[semithick,->] (specLeave)..controls +(south:2) and +(south:2)..(specToLeave);
+    \draw[semithick,->] (objExpectTrace)..controls +(south:2) and +(south:2)..(specAsked);
+    \draw[semithick,->] (specAsked)..controls +(south:2) and +(south:2)..(specCP);
+    \draw[semithick,->] (specAsk)..controls +(south:2) and +(south:2)..(specTP);
+    \end{tikzpicture}}
+
+    \item
+    % Where should I expect that Leadbelly slept last night?
+    \noindent Deep Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\tiny \Tree
+    [.CP {}
+    [.C' \node(vC){C\\should-$\emptyset_{[+Q]}$};
+    [.TP 
+    [.T' \node(traceT){};
+    [.VP [.DP$_{i}$ \edge[roof]; \node(specTP){I}; ]
+    [.V'
+      \node(vExpect){V\\expect};
+      [.CP {}
+      [.C' C\\that
+      [.TP {}
+      [.T' T\\-ed
+      [.VP [.DP \edge[roof]; \node(specSlept){Leadbelly}; ]
+      [.V'
+        [.V'
+          [.V'
+            \node(vSleep){sleep}; {}
+          ]%V'
+          [.PP \edge[roof]; where ]
+        ]%V'
+        [.PP \edge[roof]; {last night} ]
+      ]%V'
+      ]%VP
+      ]%T'
+      ]%TP 
+      ]%C'
+      ]%C'
+      ]%CP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \end{tikzpicture}}
+
+    \pagebreak
+
+    % Where should I expect that Leadbelly slept last night?
+    \noindent Surface Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\tiny \Tree
+    [.CP [.PP \edge[roof]; \node(specCP){Where$_{j}$}; ]
+    [.C' \node(vC){C\\should-$\emptyset_{[+Q]}$};
+    [.TP [.DP$_{i}$ \edge[roof]; \node(specTP){I}; ]
+    [.T' \node(traceT){};
+    [.VP \node(specExpect){t$_{i}$};
+    [.V'
+      \node(vExpect){V\\expect};
+      [.CP \node(lowerSpecCP){t};
+      [.C' C\\that
+      [.TP [.DP$_{j}$ \edge[roof]; \node(specSlept){Leadbelly}; ]
+      [.T' \node(traceEd){t};
+      [.VP \node(specSleep){t$_{j}$};
+      [.V'
+        [.V'
+          [.V'
+            \node(vSleep){sleep-ed}; {}
+          ]%V'
+          \node(whTrace){t};
+        ]%V'
+        [.PP \edge[roof]; {last night} ]
+      ]%V'
+      ]%VP
+      ]%T'
+      ]%TP 
+      ]%C'
+      ]%C'
+      ]%CP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \draw[dashed,->] (traceEd)..controls +(south:4) and +(south:2)..(vSleep);
+    \draw[dashed,->] (traceT)..controls +(south:3) and +(south:3)..(vC);
+    \draw[semithick,->] (lowerSpecCP)..controls +(south:2) and +(south:4)..(specCP);
+    \draw[semithick,->] (whTrace)..controls +(south:8) and +(south:4)..(lowerSpecCP);
+    \draw[dotted,->] (specSleep)..controls +(south:2) and +(south:2)..(specSlept);
+    \end{tikzpicture}}
+
+    \end{enumerate}
+
+\item \textbf{Short Answer}
+
+In (3b, 2b), the \emph{wh}-question C a$\textsuperscript{L}$ appears in every clause
+in the sentence, starting at the embedded clause where the \emph{wh}-element originates and
+iterating upward. This suggests that, syntactically, the \emph{wh}-phrase raises cyclically,
+stopping at every clause. Whenever the phrase leaves a trace, it leaves a [+\emph{u}wh] feature,
+which then conditions a$\textsuperscript{L}$. For this reason, a$\textsuperscript{L}$ occurs as the
+C in every clause, not just where the \emph{wh}-phrase originates or ends up.
+
+
+\item \textbf{Short Answer}
+
+In (6b), the embedded clause itself has a \emph{wh}-element \emph{caidé}, which syntactically
+blocks another \emph{wh}-element (here \emph{cén}) from raising to the matrix clause, since it
+cannot jump over the spec-C slot occupied by \emph{caidé}. So, we could propose that resumptive
+pronouns in Irish are obligatory when \emph{wh}-movement would violate a locality constraint.
+
+However, in (7b), the resumptive pronoun occurs in the matrix (or rather, the only) clause. Here
+it occurs as the specifier of the DP containing \emph{mháthair}. Since the resumptive pronoun in
+(6b) occurs as the specifier of the verb \emph{bhuailfidh}, we could instead propose that Irish
+requires a resumptive pronoun whenever the original \emph{wh} element would occur in specifier position
+of any phrase. Looking at the other Irish data in (2, 3, 5), we observe that all sentences with
+\emph{wh}-movement move the complement of a verb, so this theory is consistent with the data
+observed.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,62 @@
+Categorical, qualitative
+* nominal attributes - can be compared only on basis of equality
+* ordinal - can be compared along spectrum
+Numeric, quantitative, continuous
+* interval - numeric, difference btw 2 vals is meaningful
+* ratio - ratio btw vals is meaningful
+
+* data not always in a table (DNA sequence, video, txt)
+
+* data science process:
+	1. data preprocessing
+		fusing 
+		cleaning
+		exploration
+		sampling
+		aggregating
+		feature engineering
+		dimmensionality reduction
+	2. data mining
+		modeling
+		statistics
+		machine learning
+	3. postprocessing
+		visualization analysis
+
+*** data science is an ITERATIVE PROCESS; it goes back and forth
+among these steps ***
+
+data cleaning
+	- data is typically not collected in a way
+	that lends itself to straightforward analysis
+	- tends to take "up to 80% of the time"
+	- tedious
+
+	* ways of handling missing data
+		- list wise deletion (drop row w/ missing value)
+		- pair wise deletion (just ignore missing value)
+		- imputation (filling in most likely value)
+
+noise vs. outliers
+	- outliers are anomalous values, but still legitimate data (Bill Gates in a bar)
+		-- can be multivariate (250lbs person not an outlier, 5' person not an outlier,
+		but a person who is 250lbs and 5' is an outlier)
+	- noise is statistically erroneous (misreporting income of $100k as $100 million)
+
+univariate analysis
+	- go one variable at a time
+	- numeric, continuous: look at mean, median, mode, distribution etc.
+	- categorical: look at frequency tables, bar charts, pie chart
+
+bivariate analysis
+	- after univariate
+	- two numeric, continous
+		-- scatter plot
+		-- correlation coefficient
+	- two categorical features
+		-- two-way table (how many data have feature a and feature b?)
+		-- chi-squared test
+		-- stacked bar chart
+	- continuous & categorical
+		-- box plots
+		-- Z-test

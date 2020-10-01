@@ -1,0 +1,661 @@
+\documentclass[a4paper, 11pt]{article}
+% MLA format
+\usepackage[letterpaper]{geometry}
+%\usepackage{times}
+\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{} 
+\chead{} 
+\rhead{Simmons \thepage} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+
+%\usepackage{mdwlist}
+\usepackage{enumitem}
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+\title{Homework 9}
+\author{Mark Simmons}
+\date{April 24, 2020}
+
+
+% Typing in IPA
+\usepackage{tipa}
+
+% Sentence trees
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{tree-dvips}
+\tikzset{level distance=30pt,
+sibling distance=6pt,
+every tree node/.style={align=center},
+}
+
+% Glosses
+\usepackage{linguex}
+
+\begin{document}
+
+\maketitle
+
+
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+
+\item Technical
+
+\begin{enumerate}[label=(\alph*)]
+
+	% The money was hidden in the drawer.
+	\item Deep Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\small \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP {}
+	[.T' T\\-ed
+		[.VP 
+        [.V' V\\be
+            [.V'
+                [.V' V\\hidden
+                    [.DP \edge[roof]; {The money} ]
+                ]%V'
+                [.PP \edge[roof]; {in the drawer.} ]
+            ]%V'
+		]%V'
+		{} ]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\end{tikzpicture}}
+
+	\pagebreak
+
+	\noindent Surface Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\small \Tree
+	[.CP [.DP \edge[roof]; \node(subSpecT){The money$_{i}$}; ]
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP {}
+	[.T' \node(vT){T\\be-ed$_{j}$};
+		[.VP {}
+        [.V' \node(traceV){V\\t$_{j}$};
+            [.V'
+                [.V' V\\hidden
+                    \node(traceSub){t$_{i}$};
+                ]%V'
+                [.PP \edge[roof]; {in the drawer.} ]
+            ]%V'
+		]%V'
+		]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+    \draw[dashed,->] (traceV)..controls +(south:1) and +(south:4)..(vT);
+	\draw[semithick,->] (traceSub)..controls +(south:3) and +(south:6)..(subSpecT);
+    \end{tikzpicture}}
+
+	\pagebreak
+
+	% It seems that Sonny loves Cher.
+	\item Deep Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\small \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP {}
+	[.T' T\\-s
+		[.VP {}
+        [.V' V\\seem
+			[.CP {}
+			[.C' C\\that
+				[.TP {}
+				[.T' T\\-s
+				[.VP [.DP \edge[roof]; {Sonny} ]
+				[.V' V\\love [.DP \edge[roof]; {Cher.} ]
+				]%V'
+				]%VP
+				]%T'
+				]%TP
+			]%C'
+            ]%CP
+		]%V'
+		]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\end{tikzpicture}}
+
+	\pagebreak
+
+	\noindent Surface Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\small \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP \node(subSpecT)[draw,circle]{DP\\It$_{i}$};
+	[.T' \node(tTrace){};
+		[.VP \node(traceSub){t$_{i}$};
+        [.V' \node(v){V\\seem-s};
+			[.CP {}
+			[.C' C\\that
+				[.TP [.DP \edge[roof]; \node(subSpecTpLower){Sonny$_{j}$}; ]
+				[.T' \node(tTraceLower){};
+				[.VP \node(traceSubLower){t$_{j}$};
+				[.V' \node(vLower){V\\love-s}; [.DP \edge[roof]; {Cher.} ]
+				]%V'
+				]%VP
+				]%T'
+				]%TP
+			]%C'
+            ]%CP
+		]%V'
+		]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\draw[dashed,->] (tTraceLower)..controls +(south:3) and +(south:4)..(vLower);
+    \draw[dashed,->] (tTrace)..controls +(south:3) and +(south:4)..(v);
+	\draw[semithick,->] (traceSub)..controls +(south:1) and +(south:3)..(subSpecT);
+	\draw[semithick,->] (traceSubLower)..controls +(south:1) and +(south:3)..(subSpecTpLower);
+
+    \end{tikzpicture}}
+
+	\pagebreak
+
+	% Donny appears to have been kissed by the puppy.
+	\item Deep Structure\\
+	\tikzset{level distance=15pt,
+    sibling distance=3pt,
+    }
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\tiny \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP {}
+	[.T' T\\-s
+	[.VP {}
+	[.V' \node(v){V\\appear};
+		[.CP {}
+		[.C' C\\$\emptyset_{[-Q]}$
+			[.TP {}
+			[.T' T\\to
+			[.VP {}
+			[.V' V\\have
+				[.VP {} [.V' V\\been
+					[.VP {} 
+					[.V'
+						[.V' V\\kissed [.DP \edge[roof]; {Donny} ] ]
+						[.PP \edge[roof]; {by the puppy.} ]
+					]%V'
+					]%VP
+				] ]%V', VP
+			]%V'
+			]%VP
+			]%T'
+			]%TP
+		]%C'
+		]%CP
+	]%V'
+	]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\end{tikzpicture}}
+
+	\pagebreak
+
+	\noindent Surface Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\tiny \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP [.DP \edge[roof]; \node(specTP){Donny$_{i}$}; ]
+	[.T' \node(traceT){T};
+	[.VP {}
+	[.V' \node(v){V\\appear-s};
+		[.CP {}
+		[.C' C\\$\emptyset_{[-Q]}$
+			[.TP \node(specToKissTrace){t$_{i}$};
+			[.T' T\\to
+			[.VP {}
+			[.V' V\\have
+				[.VP {} [.V' V\\been
+					[.VP {} 
+					[.V'
+						[.V' V\\kissed \node(objTrace){t$_{i}$}; ]
+						[.PP \edge[roof]; {by the puppy.} ]
+					]%V'
+					]%VP
+				] ]%V', VP
+			]%V'
+			]%VP
+			]%T'
+			]%TP
+		]%C'
+		]%CP
+	]%V'
+	]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\draw[dashed,->] (traceT)..controls +(south:2) and +(south:2)..(v);
+	\draw[semithick,->] (objTrace)..controls +(south:4) and +(south:4)..(specToKissTrace);
+	\draw[semithick,->] (specToKissTrace)..controls +(south:2) and +(south:6)..(specTP);
+
+
+	\end{tikzpicture}}
+
+	\pagebreak
+
+	% John is likely to appear to have been defeated.
+	\item Deep Structure\\
+	\tikzset{level distance=15pt,
+    sibling distance=3pt,
+    }
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\tiny \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP {}
+	[.T' T\\-s
+	[.VP {}
+	[.V' V\\be
+	[.AdjP {}
+	[.Adj' Adj\\likely
+		[.CP {}
+		[.C' C\\$\emptyset_{[-Q]}$
+		[.TP {}
+		[.T' T\\to
+		[.VP {}
+		[.V' V\\appear
+			[.CP {}
+			[.C' C\\$\emptyset_{[-Q]}$
+				[.TP {}
+				[.T' T\\to
+				[.VP {}
+				[.V' V\\have
+					[.VP {} [.V' V\\been
+						[.VP {} [.V' V\\defeated [.DP \edge[roof]; {John} ] ] ]%DP, V', VP
+					] ]%V', VP
+				]%V'
+				]%VP
+				]%T'
+				]%TP
+			]%C'
+			]%CP
+		]%V'
+		]%VP
+		]%T'
+		]%TP
+		]%C'
+		]%CP
+	]%AdjP
+	]%Adj'
+	]%VP
+	]%V'
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\end{tikzpicture}}
+
+	\pagebreak
+
+	\noindent Surface Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\tiny \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP [.DP \edge[roof]; \node(specTP){John$_{i}$}; ]
+	[.T' \node(vT){T\\be-s$_{j}$};
+	[.VP {}
+	[.V' \node(vTrace){t$_{j}$};
+	[.AdjP {}
+	[.Adj' Adj\\likely
+		[.CP {}
+		[.C' C\\$\emptyset_{[-Q]}$
+		[.TP \node(specToAppearTrace){t$_{i}$};
+		[.T' T\\to
+		[.VP {}
+		[.V' V\\appear
+			[.CP {}
+			[.C' C\\$\emptyset_{[-Q]}$
+				[.TP \node(specToDefeatTrace){t$_{i}$};
+				[.T' T\\to
+				[.VP {}
+				[.VP {} [.V' V\\have
+					[.VP {} [.V' V\\been
+						[.VP {} [.V' V\\defeated \node(objTrace){t$_{i}$}; ] ]%V', VP
+					] ]%V', VP
+				] ]%V', VP
+				]%VP
+				]%T'
+				]%TP
+			]%C'
+			]%CP
+		]%V'
+		]%VP
+		]%T'
+		]%TP
+		]%C'
+		]%CP
+	]%AdjP
+	]%Adj'
+	]%VP
+	]%V'
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\draw[dashed,->] (vTrace)..controls +(south:2) and +(south:2)..(vT);
+	\draw[semithick,->] (objTrace)..controls +(south:4) and +(south:3)..(specToDefeatTrace);
+	\draw[semithick,->] (specToDefeatTrace)..controls +(south:4) and +(south:4)..(specToAppearTrace);
+	\draw[semithick,->] (specToAppearTrace)..controls +(south:2) and +(south:6)..(specTP);
+
+
+	\end{tikzpicture}}
+
+	
+    \end{enumerate}
+
+\item \textbf{Argumentation}
+
+	In English passive sentences, the semantic patient of the verb is manifested syntactically and morphologically
+	as the subject, as in (1).
+
+	\ex.
+	  \a.
+		We elected him.
+	  \b.
+	  	He was elected.
+
+
+	The object of \emph{elect} in (1a) behaves as a canonical object in English; it follows the verb and is
+	marked with accusative case. In (1b), however, the semantic object has been fronted to before the verb,
+	where the subject normally resides, and is marked with nominative case. The Icelandic passive in (2)
+	behaves similarly.
+
+	\ex.
+	\ag.
+	  Vi\textipa{D} kusum stelpuna.\\
+	  1\sc{pl.nom} elected girl\sc{.def.sg.f.acc}\\
+	  \trans `We elected the girl.'
+	\bg.
+	  Stelpan var kosin.\\
+	  girl\sc{.def.sg.f.nom} was elected\\
+	  \trans `The girl was elected.'
+
+	In (2a) \emph{stelpuna} follows the verb and is marked with accusative case, while in (2b) it precedes the verb
+	and is marked with nominative case. Thus, it seems that in general the semantic object of a passive verb
+	behaves syntactically and morphologically like a subject.
+
+	However, an issue arises with verbs that take so-called ``quirky case'' DPs as direct objects, rather than accusative DPs.
+
+	\ex.
+	\ag.
+	  Vi\textipa{D} hjálpu\textipa{D}um/björgu\textipa{D}um/heilsu\textipa{D}um stelpunum.\\
+	  1\sc{pl.nom} helped/rescued/greeted girl\sc{.def.sg.f.dat}\\
+	  \trans `We helped/rescued/greeted the girl.'
+	\bg.
+	  Vi\textipa{D} söknu\textipa{D}um/leitu\textipa{D}um/g{\ae}ttum hennar.\\
+	  1\sc{pl.nom} missed/searched\_for/looked\_after\ 3sc{.sg.f.gen}\\
+	  \trans `We missed/searched for/looked after her.'
+
+	Our current theory of nominal case predicts that the use of dative in (3a) and genitive and (3b) are mere morphological
+	proxies for an abstract [+uACC] Case marked syntactically on the DP. When the verb is passivized, it loses its
+	ability to check for accusative case, requiring the object to move to subject position, which checks for [+uNOM].
+	If the dative and genitive observed above are indeed proxies for [+uACC], we would expect the DPs to lose the
+	oblique case inflection and manifest as morphologically nominative when moved to subject position in a passive sentence.
+	As the following data show, that is not the case (ba dum tsss).
+
+	\ex.
+	\ag.
+	  Henni var hjálpa\textipa{D}/bjaraga\textipa{D}/heilsa\textipa{D}.\\
+	  3\sc{.sg.f.dat} was helped/rescued/greeted\\
+	  \trans `She was helped/rescued/greeted.'
+	\bg.
+	  Hennar var sakna\textipa{D}/leita\textipa{D}/g{\ae}tt.\\
+	  3\sc{.def.sg.f.gen} was missed/searched\_for/looked\_after\\
+	  \trans `She was missed/searched for/looked after.'
+
+	As (4) demonstrates, these nouns maintain quirky case even when subject of a passive sentence. Since, as stated above
+	quirky case is assumed to be a proxy for an abstract [+uACC] feature, it appears that these sentences have an accusative
+	DP in subject position. This is a problem for our theory, which predicts that subject position checks only for [+uNOM],
+	and should not allow nouns marked for any other case in this posititon.
+
+	
+	However, there is a possible explanation other than assuming that \emph{henni} and \emph{hennar} are underlyingly
+	Accusative in (4). It is possible that they have accusative Case in (3) and nominative case in (4), but surface as dative and genitive because
+	of a post-syntactic rule that overrides whatever morphology is expected from abstract Case.
+	
+	Before we imagine what such a rule could be, let us consider the behavior of phrasal verbs in English in passive sentences.
+
+	\ex.
+	\a.
+	  We looked after her.
+	\b.
+	  She was looked after.
+	
+	In (5a), the direct object \emph{her} is expressed as the object of the preposition \emph{after}. However, this is not
+	what the compositional semantics entail, otherwise (5a) would by synonymous with \emph{We looked beyond her}. Instead, the
+	meaning is closer to \emph{We protected her}. In other words, the direct object of the verb in (5a) is expressed morphologically
+	as if it were an oblique argument. This is similar to Icelandic's quirky case. Where English quirky verbs have an idiosyncratic
+	preposition that governs the direct object, Icelandic quirky verbs assign an idiosyncratic case affix to their direct object.
+	I write these affixes as $\emptyset_{[+DAT]}$ and $\emptyset_{[+GEN]}$.
+
+	The key here is the distinction between a preposition (that is, a lexeme) and an affix. A lexeme can stand on its own in SS,
+	for this reason appears separate from the patient DP in (5b). Trying to front it along with the pronoun results in an ungrammatical
+	sentence.
+
+	\ex. *After her was looked.
+
+	An affix, however, must have a lexical host. Thus, the affix has no choice but to raise with its nominal host in order to
+	satisfy the Stranded Affix Filter.
+
+	Other forms of the passive require further explanation.
+
+	\ex.
+	\ag.
+		B\ae kurnar voru lesnar.\\
+		book\sc{.pl.nom.def} were returned\\
+		\trans `The books were returned'
+	\bg.
+		\textthorn a\textipa{D} var lesnar fjórar b\ae kur.\\
+		\sc{expl}  were read four\sc{.pl.nom} book\sc{.pl.nom}\\
+		\trans `Four books were read.'
+
+	Here we see that, in an alternate passive contruction, the patient DP is left in its original position following the
+	verb, rather than raised to subject position, and an expletive pronoun occupies the sentence's subject position. As
+	expected, the patient DP is not marked accusative, as the passive verb has lost its [+ACC] feature. There is still a problem,
+	nonetheless: the patient DP should not be able to stay within the VP at all; our theory predicts that passive verbs should
+	not be able to assign any case, which is why the noun phrase is expected to raise, so that it can check its case feature
+	against the TP.
+
+	One possible solution to this is to modify the rule for feature-checking on Icelandic nouns. When a noun has no place in
+	the sentence to check its case feature, it is realized in SS with the most unmarked morphological case, which in Icelandic
+	appears to be the nominative. I will refer to this rule as the Unmarked Nominative Filter. Note how this contrasts with
+	English, which (according to the model we have developed so far for it) does not allow for nouns to lack a case feature
+	in DS.
+
+	The assignation of nominative morphology to \emph{fjórar b\ae kur} thus occurs post-syntactically, as a ``last resort''
+	option since no other case has been assigned to it. Thus, we might expect that other post-syntactic processes might
+	assign case before the Unmarked Nominative Filter occurs - for example, if a noun is assigned a case by a null affix
+	that governs it morphologically.
+
+	\ex.
+	\ag.
+		Bókunum var skila\textipa{D}.\\
+		book\sc{.pl.dat.def} was returned\\
+		\trans `The books were returned'
+	\bg.
+		\textthorn a\textipa{D} var skila\textipa{D} fjórum bókum.\\
+		\sc{expl}  was returned four\sc{.pl.dat} book\sc{.pl.dat}\\
+		\trans `Four books were returned.'
+
+	Since the verb \emph{skila} has a quirky-case affix that associates onto the object noun and gives it dative morphology,
+	we see it marked so in the SS, even though underlyingly the object DP lacks abstract Case.
+
+	Another type of passive appears to disprove the posited Unmarked Nominative Filter.
+
+	\ex.
+	\ag.
+		\textthorn a\textipa{D} var bari\textipa{D} mig.\\
+		\sc{expl} was beaten 1\sc{.sg.acc}\\
+		\trans `I was beaten.'
+
+	This sentence is identical in structure to the passive in (7b), save that the patient DP is marked accusative rather than
+	nominative. This violates the proposed Unmarked Nominative Filter. However, the reason that the nominative case was used
+	in the rule was not for any underlying syntactic motivation, but rather simply because it seemed to be the most unmarked
+	case in Icelandic. Given the recency of this new construction, I propose that it could be motivated by a shift in 
+	markedness, namely, that the accusative case in modern Icelandic is becoming less marked than the nominative. Compare
+	sentences in English such as \emph{Me and my friends went to the store} - though \emph{me} is part of the subject DP and,
+	thus, should be nominative, it appears accusative, seemingly because it is separate from the main verb by a conjunction.
+	The fact that the accusative case is assigned to this pronoun when there is no syntactic or semantic motivation to do so
+	suggests that the accusative is less marked overall than nominative in English. Thus, the same could be true of modern
+	Icelandic, which would reconcile the data above with the theory established in this paper.
+
+	Thus, I propose that the differences in morphology and word order observed in English and Icelandic passives can be
+	explained via parametric variations between the language. First, Icelandic verbs that take a quirky case object
+	instead of accusative assign this case via a lexicalized affix that functions similar to the particle in English verbs
+	such as \emph{look after}, which then follow the object through any movement or transformations due to the Stranded Affix
+	Filter. Further, where English does not allow the object of a passivized
+	verb to remain in-situ as complement to V and be featureless with regards to case in DS, Icelandic does allow so when an expletive subject
+	occupies specifier of TP position. I finally argue that Icelandic employs a filter rule which assigns any such stranded
+	DPs the most unmarked morphological case if no other rule assigns them a case first.
+
+\item \textbf{Argumentation}\\
+	Several English verbs can occur with an embedded clause. In X-Bar theory, we say that these verbs
+	take the embedded clause as their complement.
+
+	\ex. John believes that Bill lied.
+
+	Here, ``that Bill lied'' is the complement of the verb \emph{believe}. The complement clause here is a
+	tensed clause introduced by the \emph{that}. However, \emph{believe} can also take a non-tensed clause
+	as its complement, such as an infinitive clause.
+	
+	\ex. John believes Bill to have lied.
+
+	Though \emph{believe} here appears to possess the same argument structure as it does in (10), I will argue
+	that \emph{Bill} actually moves from being subject of the embedded clause in DS to being object of the
+	verb \emph{believe} in the matrix clause in SS, meaning that \emph{believe} in (2) has two separate
+	complements.
+
+	Disregarding theory, there is reason to believe \emph{Bill} is the semantic subject of the verb \emph{lie},
+	is syntactically the object of \emph{believe}. If we replace \emph{Bill} in (11) with a pronoun, we can see
+	it is marked accusative morphologically.
+
+	\ex. 
+		\a. John believes him to have lied.
+		\b. *John believes he to have lied.
+
+	Furthermore, \emph{believe} can occur with an object noun and no complement clause:
+
+	\ex.
+		\a. I believe him.
+		\b. John will never believe me.
+
+	Thus, since \emph{believe} can clearly take an accusative object, it is preferable to consider that \emph{Bill}
+	in (11) and \emph{him} in (12a) are the syntactic object of \emph{believe}, rather than being part of the
+	infinitive clause.
+
+	This fits our understanding of Case Filter as well. A non-finite clause cannot check nominative case on a
+	DP, and thus it cannot take a subject. This causes the underlying subject of \emph{lie} to move to the
+	nearest case-checking position, which is the object position of the verb in the matrix clause.
+
+	Another theoretical ``probe'' we can apply here is Binding Theory. Since the binding domain for elements
+	such as pronouns and anaphors is the lexeme's immediate clause, we can discern whether this clause
+	is the matrix Tensed clause, or the embedded infinitive clause.
+
+	As demonstrated below, pronouns in this position cannot be co-indexed with the subject of the matrix
+	clause.
+
+	\ex. 
+		\a. John$_{i}$ believes him$_{j}$ to have been defeated.
+		\b. *John$_{i}$ believes him$_{i}$ to have been defeated.
+
+	Binding Principle B states that pronouns must be free within their binding domain, which is the
+	immediate clause. (14b) shows that \emph{him} cannot be coindexed with \emph{John}, though it is
+	perfectly grammatical if it indexes any other referent. This suggests that \emph{him} is inside the same
+	clause as \emph{John}, and that (14b) is unacceptable because \emph{John} would then bind \emph{him},
+	violating Binding Principle B.
+
+	On the other hand, anaphors are capable of being coindexed with \emph{John} in this sentence.
+
+	\ex.
+		\a. John$_{i}$ believes himself$_{i}$ to have been defeated.
+		\b. John$_{i}$ believes Bob$_{j}$ to have defeated himself$_{j}$.
+
+	Binding Principle A states that anaphors must be bound within their binding domain.
+	(14a) proves that \emph{himself} is inside the matrix clause, else it would not be bound by \emph{John}
+	and the sentence would be ungrammatical. (15b) raises a bit of an issue - how can \emph{Bob} bind
+	\emph{himself} if \emph{Bob} is in a higher clause? It is possible that in (15a) \emph{Bob} binds
+	\emph{himself} in DS but not SS, whereas in (15a) \emph{John} binds \emph{himself} in SS but not in DS.
+
+	In fact, this could actually be proof that the subject of the embedded clause is undergoing movement.
+	Compare (15a,b) to their follow equivalent sentences.
+
+	\ex.
+	\a. *John$_{i}$ believes that himself$_{i}$ has been defeated.
+	\b. John$_{i}$ believes that Bob$_{j}$ has defeated himself$_{j}$.
+
+	When \emph{believe} takes a finite clause complement introduced by \emph{that}, the subject of the embedded
+	clause remains in the embedded clause; otherwise it would not occur following \emph{that}. Since there is no
+	movement in (16), \emph{John} cannot bind \emph{himself} either in DS or SS. However, in (15a), \emph{John} does
+	bind \emph{himself} in SS precisely because it has moved into the matrix clause.
+
+	Thus, I propose that when verbs like \emph{believe} take a non-finite clause complement, the subject of the
+	embedded clause raises to the matrix clause, manifesting as the object of \emph{believe}. I argue this from
+	the observed morphology - the case of the noun in question, and by applying the theoretical rules of Case Filter
+	and Binding Theory.
+
+\end{enumerate}
+
+\end{document}

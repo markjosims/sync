@@ -1,0 +1,71 @@
+
+form Get Formants
+	sentence Directory 
+	comment If you want to analyze all the files, leave this blank
+	word Base_file_name 
+	comment The name of result file 
+	text textfile results.txt
+endform
+
+#Print out a line with the names for the different entries.
+
+fileappend 'textfile$' interval 'tab$' vdur 'tab$' f1_20 'tab$' f2_20 'tab$' midf1 'tab$' midf2 'tab$' f1_80 'tab$' f2_80 'newline$'
+
+#Read all files in a folder
+
+Create Strings as file list... wavlist 'directory$'/'base_file_name$'*.wav
+Create Strings as file list... gridlist 'directory$'/'base_file_name$'*.TextGrid
+n = Get number of strings
+
+for i to n
+clearinfo
+
+#We first extract formant tier
+
+	select Strings wavlist
+	filename$ = Get string... i
+	Read from file... 'directory$'/'filename$'
+	soundname$ = selected$ ("Sound")
+	To Formant (burg)... 0.01 5 5500 0.025 50
+
+# We now read grid files and extract all intervals in them
+	select Strings gridlist
+	gridname$ = Get string... i
+	Read from file... 'directory$'/'gridname$'
+	int=Get number of intervals... 1
+
+# We calculate intensity for all labeled intervals
+for k from 1 to 'int'
+	select TextGrid 'soundname$'
+	label$ = Get label of interval... 1 'k'
+	if label$ <> ""
+
+		# calculates the onset and offset
+ 		onset = Get starting point... 1 'k'
+  		offset = Get end point... 1 'k'
+		mid  = onset + ((1/2) * (offset - onset))
+	    t20 = onset + ((1/5)*(offset-onset))
+		t80 = onset + ((4/5)*(offset-onset))
+		vdur = (offset - onset) * 1000		
+
+		select Formant 'soundname$'
+		midf1 = Get value at time... 1 'mid' Hertz Linear
+		midf2 = Get value at time... 2 'mid' Hertz Linear
+		f1_20 = Get value at time... 1 't20' Hertz Linear
+		f2_20 = Get value at time... 2 't20' Hertz Linear
+		f1_80 = Get value at time... 1 't80' Hertz Linear
+		f2_80 = Get value at time... 2 't80' Hertz Linear
+		
+
+		resultline$ = "'label$' 'tab$' 'vdur' 'tab$' 'f1_20' 'tab$' 'f2_20' 'tab$' 'midf1' 'tab$' 'midf2' 'tab$' 'f1_80' 'tab$' 'f2_80' 'newline$'"
+	        fileappend "'textfile$'" 'resultline$'
+	endif
+endfor
+
+endfor
+
+# clean up
+
+select all
+Remove
+

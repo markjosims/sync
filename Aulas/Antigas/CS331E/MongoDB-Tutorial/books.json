@@ -1,0 +1,22 @@
+{"books":
+    [
+        {
+            "name": "Lord of the Rings",
+            "pages": 1000,
+            "author": "J.R.R. Tolkien",
+            "tags": ["fantasy", "novel", "fiction"]
+        },
+        {
+            "name": "The Silmarillion",
+            "pages": 500,
+            "author": "J.R.R. Tolkien",
+            "tags": ["fantasy", "novel", "fiction"]
+        },
+        {
+            "name": "MongoDB",
+            "pages": 250,
+            "author": "Bob",
+            "tags": ["computer-science", "guide"]
+        }
+    ]
+}

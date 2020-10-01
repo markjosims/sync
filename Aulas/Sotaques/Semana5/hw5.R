@@ -1,0 +1,7 @@
+attach(luganda1)
+height.aov = aov(f1 ~ height)
+summary(height.aov)
+TukeyHSD(height.aov)
+frontness.aov = aov(f2 ~ frontness)
+summary(frontness.aov)
+TukeyHSD(frontness.aov)

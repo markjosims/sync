@@ -1,0 +1,44 @@
+# Types of error
+- *training error* - % of misclassification on training data set (typically low)
+- *test/generalization error* - % of misclassification errors on test data set (previously unseen data)
+- *accuracy* - % of correct classifications on test data set (100 - generalization error)
+
+# Training data vs. testing data
+- *training data* - small portion of data held out from test set (e.g. 80% training, 20% testing)
+	- issues occur if training and/or test sat data is inequitably distributed (imbalanced)
+
+# K-fold cross-validation
+- holdout method run multiple times
+- split data into *k* partitions (folds)
+- for each partition, hold it out & train on rest
+	- once each of *k* models have been generated, run model on whole data set
+	- *k* models aren't saved - just there to get accuracy data
+
+# Cross-validating practices
+- perform scaling/normalization on training set ONLY
+	- if scaling/normalization performed on whole data set w/ test data,
+	test data can "leak" into training data (since means, stdev etc. are
+	calculated including testing data)
+
+# Overfitting
+- model has become too specific to training data
+- train until
+
+## Counters to overfitting in decision trees
+
+### Pre-pruning
+- set a max tree depth
+- only make leaves until a certain % purity is reached
+- only make leaves until a certain size is reached
+- only make leaves as long as gain is over some threshold value
+- only make splits that are statistically significant (Chi^2 test)
+
+### Reduced Error Pruning
+- from bottom up, replace leaf nodes w most common class
+- for each node w/ only leaves as children, compare error of all children w/
+error if split did not exist
+- if error does not increase upon pruning parent node, remove split
+
+### Model Selection / Hyperparameter Tuning
+- stop training model when validation error hits minimum
+	- optimize *hyperparameter* e.g. max depth of decision tree

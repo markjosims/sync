@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+
+% MLA format
+\usepackage[letterpaper]{geometry}
+%\usepackage{times}
+\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{} 
+\chead{} 
+\rhead{Simmons \thepage} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{} 
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+
+\usepackage{mdwlist}
+\usepackage{enumitem}
+\title{Homework 5}
+\author{Mark Simmons}
+\date{September 25, 2020}
+
+% Multi-line glosses
+\usepackage{chngcntr}
+\usepackage{gb4e,cgloss4e}
+
+\newcounter{glossnum}
+
+\newcommand{\numgloss}{\refstepcounter{glossnum}\alph{glossnum}.\space}
+\counterwithin{glossnum}{xnumi}
+\renewcommand{\theglossnum}{\thexnumi\alph{glossnum}}
+
+% Typing in IPA
+\usepackage{tipa}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item Monophthongization of /a\textipa{I}/ (314-315)
+\begin{itemize}
+    \item African-American Texans: \textbf{9.6\%}
+    \item Hispanic Texans: \textbf{13.1\%}
+    \item White Anglo Texans: \textbf{26.6\%}
+    \item White Anglo Texans: who have lived in Texas their whole lives \textbf{33.7\%}
+    \item White Anglo Texans, aged 18–29, who have lived in Texas their whole lives in a
+    town or rural area: \textbf{60\%}
+    \item White Anglo Texans, aged 18–29, who have lived in Texas their whole lives in a
+    very large metropolitan area: \textbf{19\%}
+\end{itemize}
+\item Average F2 in the offset of /a\textipa{I}/ for rural students was nearly equal to that of /a/,
+while for metropolitan students it was closer to /e/, significantly higher than for rural students.
+(Explained in prose on 321; data on pg. 323).
+\item F2 at onset of /e/ was significantly lower for rural than for metropolitan students.
+(Explained in prose on 321; data on pg. 323).
+\item Thomas attributes the disparity between rural and metropolitan vowels largely to a process of
+\textit{koineization} occurring in metropolitan areas where dialectical differences in vowels are being
+leveled between native Texans and anglos migrating from other parts of the country. Since northerners
+moving to Texas are far more likely to settle in metropolitan areas than in rural ones, this leveling
+did not occur in rural-dwelling speakers. k
+
+\item Height\\
+    \begin{tabular}{lllll}
+    Df        & Sum Sq & Mean Sq & F value & Pr (\textgreater{}F)       \\
+    height    & 2      & 2636083 & 1318041 & 368.3 \textless{}2e-16 *** \\
+    Residuals & 239    & 855333  & 3579    &                            \\
+              &        &         &         &                           
+    \end{tabular}
+
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = f1 ~ height)
+
+\$height
+\begin{tabular}{lllll}
+    diff     & lwr        & upr        & p adj     & Pr (\textgreater{}F) \\
+    low-high & 283.90612  & 259.22099  & 308.5913  & 0                    \\
+    mid-high & 87.35117   & 67.03735   & 107.6650  & 0                    \\
+    mid-low  & -196.55495 & -221.36966 & -171.7402 & 0                   
+\end{tabular}
+
+The p-value for the group difference between low and high, mid and high, and mid and low is below 0.01 for each group. Thus, each of these three groups of vowels differ significantly with respect to f1.
+
+Frontness
+
+\begin{tabular}{lllll}
+    Df        & Sum Sq & Mean Sq  & F value  & Pr(\textgreater{}F)        \\
+    frontness & 2      & 44465655 & 22232827 & 418.9 \textless{}2e-16 *** \\
+    Residuals & 239    & 12685505 & 53077    &                            \\
+              &        &          &          &                           
+\end{tabular}
+
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = f2 ~ frontness)
+
+\$frontness
+\begin{tabular}{lllll}
+    diff          & lwr      & upr      & p adj     & Pr(\textgreater{}F) \\
+    central-back  & 297.8337 & 202.7684 & 392.8989  & 0                   \\
+    front-back    & 948.0021 & 869.7712 & 1026.2329 & 0                   \\
+    front-central & 650.1684 & 554.6041 & 745.7327  & 0                  
+\end{tabular}
+
+The p-value for the group difference between central and back, front and back, and front and central is below 0.01 for each group. Thus, each of these three groups of vowels differ significantly with respect to f2.
+
+\end{enumerate}
+
+
+\end{document}

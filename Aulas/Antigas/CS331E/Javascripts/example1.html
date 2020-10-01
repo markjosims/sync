@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Example 1</title>
+	</head>
+<body>
+	<!-- "id" is valid for any HTML element but "name" can only be used for a few such as <a>-->
+	<form name="form1">
+		<input type="checkbox" id="box1"/>
+		<input type="button" value="Press" onClick="validator()"/>
+	</form>
+	
+	<!-- Javascripts
+		 - Scripts can be placed in the <body>, or in the <head> section of an HTML page, or in both.
+		 
+         - Placing scripts at the bottom of the <body> element improves the display speed, 
+		 because script compilation slows down the display.
+		 
+	     - The type attribute inside the script tag is not required. JavaScript is the default scripting language in HTML. -->
+	<script type="text/javascript">
+	
+	function validator() {
+		if (document.getElementById("box1").checked)
+			alert("You have checked the box!")
+		else
+			alert("You have NOT checked the box!")
+	}
+
+	</script>
+</body>
+</html>

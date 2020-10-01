@@ -1,0 +1,167 @@
+\documentclass[12pt]{article}
+
+% MLA format
+\usepackage[letterpaper]{geometry}
+\usepackage{times}
+\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{} 
+\chead{} 
+\rhead{Simmons \thepage} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+
+\usepackage{mdwlist}
+\usepackage{enumitem}
+\title{Homework 2}
+\author{Mark Simmons}
+\date{February 7, 2020}
+
+% Multi-line glosses
+\usepackage{chngcntr}
+\usepackage{gb4e,cgloss4e}
+
+\newcounter{glossnum}
+
+\newcommand{\numgloss}{\refstepcounter{glossnum}\alph{glossnum}.\space}
+\counterwithin{glossnum}{xnumi}
+\renewcommand{\theglossnum}{\thexnumi\alph{glossnum}}
+
+% Typing in IPA
+\usepackage{tipa}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+% question 1
+\item Part of Speech Identification
+% sentence w/ pos-tags
+\begin{exe}
+\ex\label{ex1}
+\gll
+The large evil leathery alligator has complained rather loudly to his aging keeper about his extremely unattractive description.\\
+DET ADJ ADJ ADJ N AUX V ADV ADV PREP DET ADJ N PREP PRO ADV ADJ N.\\
+\end{exe}
+
+
+% justification for each pos tag of type V, N, ADJ or ADV
+\begin{itemize}
+
+\item \emph{large} (Adj): follows a determiner and precedes another Adj.
+\item \emph{evil} (Adj): follows an Adj and precedes another Adj.
+\item \emph{leathery} (Adj): has a common Adj suffix \emph{-y} and precedes a N
+\item \emph{alligator} (N): follows a string of adjectives and precedes an Aux.
+\item \emph{complained} (V): follows an Aux and bears past/passive participle suffix \emph{-ed}
+\item \emph{rather} (Adv): follows a V and precedes another Adv
+\item \emph{loudly} (Adv): follows another Adv and bears adverbial suffix \emph{-ly}
+\item \emph{aging} (Adj): follows a Det and has a present participle suffix \emph{-ing}
+\item \emph{keeper} (N): follows an Adj and bears nomen agenti suffix \emph{-er}
+\item \emph{extremely} (Adv): precedes an Adj and bears adverbial suffix \emph{-ly}
+\item \emph{unattractive} (Adj): bears adjectivial negative prefix \emph{un-} and precedes a N.
+\item \emph{description} (N): follows an Adj and bears nominal suffix \emph{-tion}
+
+\end{itemize}
+
+% question 2
+\item Nootka
+
+% sample data from book
+\begin{exe}
+  \ex\label{par2} % Arabic numbering
+  \begin{xlist} % the next ones, alphabetic numbering  as usual
+    \ex\label{par2a} \textipa{mamu:k-ma qu:Pas-Pi}\\
+    working-\textsc{pres} man-\textsc{def}\\
+    ``The man is working.''
+    \ex\label{par2b} \textipa{qu:Pas-ma mamu:k-Pi}\\
+    man-\textsc{pres} work-\textsc{def}\\
+    ``The one working is a man.''
+  \end{xlist}
+\end{exe}
+
+% questions
+\begin{enumerate}
+\item \emph{qu\textipa{:P}as} can be assumed to function as a noun in \ref{par2a}, given that it bears morphology indicating definiteness and is translated as a noun in English.
+
+\item \emph{mamu\textipa{:}k} functions as a verb in \ref{par2a}, given that it bears tense morphology and is translated as a verb in English.
+
+\item \emph{qu\textipa{:P}as} functions as a noun in \ref{par2b}, given that it bears tense morphology and is translated into English as the predicate ``is a man.''
+
+\item \emph{mamu\textipa{:}k} functions as a noun in \ref{par2b}, given that it bears definite morphology and is translated into English as the noun phrase ``The working one.''
+
+\item I assumed that the tense suffix \emph{-ma} and the definite suffix -\emph{i} associate with verbs and nouns respectively, on the basis of how similar morphology selects parts of speech in English. I also used the parts of speech of the semantic equivalents to the Nootka words in the English translation as a guide.
+
+\item I hypothesize that some elements of Nootka morphology serve a ``double-duty'' of marking inflections of a particular word category as well as deriving members of that category. Hence, if we assume that the root \emph{qu\textipa{:P}as} is nominal, then the tense suffix \emph{-ma} can be assumed to derive a verb sense from it. My hypothesis predicts that, given a corpus of natural texts, a root such as \emph{qu\textipa{:P}as} should occur overwhelmingly more frequently with nominal morphology than with verbal. I also predict that certain inflections, such as e.g. a causative marker, will only be able to associate with verb roots and not with nouns.
+
+\end{enumerate}
+
+% question 3
+\item Indonesian Syntax
+\begin{enumerate}
+
+\item Dictionary of lexemes\\
+\begin{tabular}{ll}
+Word   & Gloss                \\
+apa    & INTRG                \\
+rumah  & big                  \\
+itu    & that                 \\
+besar  & big                  \\
+ya     & yes                  \\
+tidak  & NEG (for adjectives) \\
+anda   & 2s                   \\
+mahal  & expensive            \\
+mobil  & car                  \\
+pak    & mister               \\
+ini    & this                 \\
+bukan  & NEG (for nouns)      \\
+saya   & 1s                   \\
+kepala & head                 \\
+bagian & section             
+\end{tabular}
+
+\item 
+\begin{itemize}
+\item Declarative copular sentences are formed by apposition of the two noun phrases, or the noun phrase and adjective.
+
+\item  Negative sentences have the same structure as declarative copular sentences, save for a particle that precedes the negated phrase. The particle \emph{bukan} negates adjectival predicates, and the particle \emph{tidak}, negates nominal predicates.
+
+\item Polar interrogative copular sentences have the same structure as declarative copular sentences, save that they are introduced by the interrogative particle \emph{apa} at the beginning of the sentence.
+\end{itemize}
+
+\item Unlike Indonesian, SAE always requires an overt copula (this is not true for all English dialects, though). A sentence like *``That house big'' is ungrammatical. Also, English has the same negation for nominal predicates and adjectival predicates, e.g. ``I am not big'' and ``I am not a student.''
+
+\item
+\begin{exe}
+\ex\label{par3} \begin{xlist}
+\ex\label{par3a}
+Apa ini isteri Stacey?
+\ex\label{par3b}
+Ya, ini isteri Stacey.
+\ex\label{par3c}
+Bukan, ini bukan isteri Stacey.
+\end{xlist}\end{exe}
+
+\begin{exe}
+\ex\label{par4} \begin{xlist}
+\ex\label{par4a}
+Apa pesta jauh?
+\ex\label{par4b}
+Ya, pesta jauh.
+\ex\label{par4c}
+Tidak, pesta tidak jauh. Pesta pojok di.
+\end{xlist} \end{exe}
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}

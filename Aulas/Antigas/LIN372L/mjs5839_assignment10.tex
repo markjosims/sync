@@ -1,0 +1,560 @@
+\documentclass[a4paper, 11pt]{article}
+% MLA format
+\usepackage[letterpaper]{geometry}
+%\usepackage{times}
+\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{} 
+\chead{} 
+\rhead{Simmons \thepage} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+
+%\usepackage{mdwlist}
+\usepackage{enumitem}
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+\title{Homework 10}
+\author{Mark Simmons}
+\date{May 1, 2020}
+
+
+% Typing in IPA
+\usepackage{tipa}
+
+% Sentence trees
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{tree-dvips}
+\tikzset{level distance=30pt,
+sibling distance=6pt,
+every tree node/.style={align=center},
+}
+
+% Glosses
+\usepackage{linguex}
+
+\begin{document}
+
+\maketitle
+
+
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+
+\item Short Answer
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Mary \textbf{is eager} to leave the country.\\
+  This sentence features subject control, which we can tell since the sentence does not accept expletive
+  insertion 
+  (Mary is eager to leave the country =/= It is eager for Mary to leave the country)
+  nor passive raising
+  (Mary is eager to leave the country =/= The country is eager to be left by Mary.)
+
+  \item Bill \textbf{imagined} Kim to have won the race.\\
+  This sentence features subject to object raising, which we can tell since the sentence does accept
+  passive raising
+  (Bill imagined Kim to have won the race = Kim was imagined to have won the race by Bill)
+  and insertion of an expletive object
+  (Bill imagined it that Kim had won the race)
+
+  \item Fred \textbf{forced} Kim to watch the movie.\\
+  This sentence features object control, which we can tell since the sentence does not accept
+  passive raising
+  (Fred forced the movie to be watched by Kim =/= Fred forced Kim to watch the movie)
+  nor does it allow an idiomatic phrase to be placed in the embedded clause
+  (Fred forced the cat to be let out of the bag).
+
+  \item John \textbf{is certain} to win the race.
+  This sentence features subject to subject raising, which we can tell because it accepts expletive insertion
+  (It is certain that John will win the race = John is certain to win the race) and passive raising
+  (The race is certain to be won by John == John is certain to win the race)
+
+\end{enumerate}
+
+\item Argumentation
+
+  In generative grammar, embedded clauses with no overt subject have a phonologically null
+  element occupying subject position. This element is either a trace, which indicates that
+  the subject in matrix clause originates in the embedded clause in deep structure (DS), or
+  it is PRO, a phonologically null determiner phrase (DP) that originates and stays within the
+  embedded clause, and is coindexed with the subject of the matrix clause.
+
+  \ex.
+    \a. John$_{i}$ seemed [\textsc{cp} $t_{i}$ to $t_{i}$ leave ].
+    \b. John$_{i}$ hoped [\textsc{cp} PRO$_{i}$ to $t_{i}$ leave ].
+
+  In (1a), \emph{John} is located where the second trace is in DS, whereas in (1b) \emph{John}
+  is in the matrix clause in both DS and SS, and the element PRO moves up across the T \emph{to}
+  to the specifier-TP position within the embedded clause.
+
+  The concept of PRO is motivated by the $\theta$-Criterion, which states that every DP can only
+  be assigned a single $\theta$-Role by a verb. In (1a), \emph{seem} does not assign a $\theta$-
+  role, thus it lacks a subject and requires \emph{John} to raise from the embedded clause to 
+  satisfy the EPP.
+  For (1b), however, \emph{hope} and \emph{leave} both assign $\theta$-roles to their
+  subjects, thus for \emph{John} to occupy subject position in the matrix clause, the embedded
+  clause needs a DP capable of taking the $\theta$-role given by \emph{leave}. A sentence where
+  verbs in multiple clauses each assign $\theta$-roles to the same semantic subject is said to
+  exhibit Control.
+  
+  If we merely revise the $\theta$-Criterion to allow for DP's to receive multiple $\theta$-
+  roles, it is no longer necessary to posit PRO, we can generate (1b) only with movement.
+
+  \ex. John$_{i}$ hoped [\textsc{cp} $t_{i}$ to $t_{i}$ leave ].
+
+  Where \emph{John} receives $\theta$-roles from both \emph{leave} and \emph{hope}.
+
+  In this paper, I propose that it is preferable to maintain the $\theta$-Criterion as is,
+  and thus keep the PRO subject in the embedded clause. I argue this from data on case
+  agreement in Icelandic. In the following examples, \emph{EC} refers to an `empty category'
+  occupied either by a trace or PRO element.
+
+  \ex.
+    \ag. Strákarna$_{i}$ vir\textipa{D}ast 
+    [ EC$_{i}$  vanta eikki alla í skólann ].\\
+    the-boys\textsc{.acc} seem {} {} lack not all\textsc{.acc} in the-school\\
+    \trans 'The boys seem not to be all absent from school.'
+    \bg. Strákarnir$_{i}$ vonast til
+    [ a\textipa{D} EC$_{i}$  vanta eikki alla í skólann ].\\
+    the-boys\textsc{.nom} hope for {} to {} lack not all\textsc{.acc} in the-school\\
+    \trans 'The boys hope not to be all absent from school.'
+
+  Note the parallelism between (3a,b) and (1a,b) - the only difference between each pair of
+  sentences is the verb in the matrix clause- \emph{seem/vir\textipa{D}ast} in (1a, 3a), which does not assign
+  a $\theta$-role to the subject, and \emph{hope/vonast} in (1b, 3b), which does. Thus, (3a)
+  is a canonical instance of subject-to-subject raising, while (3b) is an instance of subject control.
+  I will argue that our model can only generate both of these sentences if we assume a
+  phonologically null PRO element in (3b) where \emph{EC} is placed, rather than a trace from
+  a raised subject.
+
+  The verb in the embedded clause, \emph{vanta} `lack', takes an accusative quirky
+  subject. For this reason the quantifier \emph{alla} bears accusative case within the
+  embedded clause of both sentences.
+
+  If we assume that the subject of the matrix clause originates as subject of the embedded clause
+  in DS, we would expect that \emph{vanta} assigns it accusative case, and that it would
+  maintain accusative case when raised.
+
+  \ex.
+  \ag. Strákarna$_{i}$ vir\textipa{D}ast 
+  [ t$_{[+ACC]i}$  vanta eikki alla í skólann ].\\
+  the-boys\textsc{.acc} seem {} {} lack not all\textsc{.acc} in the-school\\
+  \trans 'The boys seem not to be all absent from school.'
+  \bg. *Strákarna$_{i}$ vonast til
+  [ a\textipa{D} t$_{[+ACC]i}$  vanta eikki alla í skólann ].\\
+  the-boys\textsc{.acc} hope for {} to {} lack not all\textsc{.acc} in the-school\\
+  \trans Intended: 'The boys hopenot to be all absent from school.' 
+  
+  This explains why \emph{strákarna} is accusative in (3a). However, if we assume that
+  (3b) features subject raising alone (and not control), then our model incorrectly generates
+  the ungrammatical sentence (4b). If we assume that (4b) features control and thus the subject
+  of the embedded clause is the null element PRO, we predict the grammatical sentence (5).
+
+  \exg. Strákarnir$_{i}$ vonast til
+  [ a\textipa{D} PRO$_{[+ACC]i}$  vanta eikki alla í skólann ].\\
+  the-boys\textsc{.nom} hope for {} to {} lack not all\textsc{.acc} in the-school\\
+  \trans 'The boys hope not to be all absent from school.'
+
+  Since \emph{strákarnir} originates in the matrix clause, it is never assigned accusative
+  case by \emph{vanta}. Instead, \emph{vanta} assigns accusative to PRO, which is not
+  reflected overtly in the sentence, but nevertheless gives accusative case to the quantifier
+  \emph{alla} which agrees with it morphologically.
+
+  Thus, because embedded verbs in Icelandic trigger quirky case on subjects in the matrix
+  clause only in sentences with Control, we must analyze these sentences differently
+  with regards to syntax than sentences without Control. In other words, subject-raising
+  cannot explain the patterns observed in Icelandic Control constructions, though if we posit
+  the phonologically null DP PRO, we can explain the observed data consistently.
+
+%\pagebreak
+
+\item Technical
+
+  \begin{enumerate}[label=(\alph*)]
+
+	% Kim tried to be offended.
+	\item Deep Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\small \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP {}
+  [.T' T\\-ed
+  [.VP [.DP$_{i}$ \edge[roof]; \node(specTP){Kim}; ]
+  [.V' \node(v){V\\try};
+    [.CP {}
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP {}
+    [.T' T\\to
+      [.VP {}
+      [.V' V\\be
+        [.VP {}
+        [.V' V\\offended [.DP$_{i}$ \edge[roof]; \node(specToBeOffended){PRO}; ]
+        ]%V'
+        ]%VP
+      ]%V'
+      ]%VP
+    ]
+    ]%TP
+    ]%C'
+    ]%CP
+  ]%V'
+  ]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\end{tikzpicture}}
+
+	\pagebreak
+
+	% Kim tried to be offended.
+  \noindent Surface Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\small \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP [.DP$_{i}$ \edge[roof]; \node(specTP){Kim}; ]
+  [.T' \node(traceT){T};
+  [.VP \node(specTry){t$_{i}$};
+  [.V' \node(v){V\\try-ed};
+    [.CP {}
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP [.DP$_{i}$ \edge[roof]; \node(specToBeOffended){PRO}; ]
+    [.T' T\\to
+      [.VP {}
+      [.V' V\\be
+        [.VP {}
+        [.V' V\\offended \node(specOffend){t$_{i}$};
+        ]%V'
+        ]%VP
+      ]%V'
+      ]%VP
+    ]
+    ]%TP
+    ]%C'
+    ]%CP
+  ]%V'
+  ]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\draw[dashed,->] (traceT)..controls +(south:3) and +(south:3)..(v);
+  \draw[semithick,->] (specTry)..controls +(south:2) and +(south:2)..(specTP);
+	\draw[semithick,->] (specOffend)..controls +(south:5) and +(south:5)..(specToBeOffended);
+
+
+  \end{tikzpicture}}
+
+  \pagebreak
+
+  \tikzset{level distance=15pt,
+  sibling distance=3pt,
+  }
+
+  % I persuaded Kim to want to walk my dog.
+	\item Deep Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+  {\tiny \Tree
+  [.CP {}
+  [.C' C\\$\emptyset_{[-Q]}$
+  [.TP {}
+  [.T' \node(traceT){T\\-ed};
+  [.VP [.DP$_{i}$ \edge[roof]; \node(specTP){I}; ]
+  [.V' \node(v){V\\persuade}; [.DP \edge[roof]; Kim$_{j}$ ]
+    [.CP {} %{PRO} to want
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP {}
+    [.T' T\\to
+      [.VP [.DP$_{j}$ \edge[roof]; \node(specToWant){PRO}; ]
+      [.V' V\\want
+      [.CP {} %{PRO} to walk my dog
+      [.C' C\\$\emptyset_{[-Q]}$
+      [.TP {}
+      [.T' T\\to
+      [.VP [.DP$_{j}$ \edge[roof]; \node(specToWalk){PRO}; ]
+      [.V' V\\walk [.DP \edge[roof]; {my dog} ]
+      ]%V'
+      ]%VP
+      ]%T'
+      ]%TP
+      ]%C'
+      ]%CP
+      ]%V'
+      ]%VP
+    ]
+    ]%TP
+    ]%C'
+    ]%CP
+  ]%V'
+  ]%VP
+  ]%T'
+  ]%TP
+  ]%C'
+  ]%CP
+  }
+	\end{tikzpicture}}
+
+
+  % I persuaded Kim to want to walk my dog.
+  \noindent Surface Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\tiny \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP [.DP$_{i}$ \edge[roof]; \node(specTP){I}; ]
+  [.T' \node(traceT){T};
+  [.VP \node(specTry){t$_{i}$};
+  [.V' \node(v){V\\persuade-ed}; [.DP \edge[roof]; Kim$_{j}$ ]
+    [.CP {} %{PRO} to want
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP [.DP$_{j}$ \edge[roof]; \node(specToWant){PRO}; ]
+    [.T' T\\to
+      [.VP \node(specWant){t$_{j}$};
+      [.V' V\\want
+      [.CP {} %{PRO} to walk my dog
+      [.C' C\\$\emptyset_{[-Q]}$
+      [.TP [.DP$_{j}$ \edge[roof]; \node(specToWalk){PRO}; ]
+      [.T' T\\to
+      [.VP \node(specWalk){t$_{j}$};
+      [.V' V\\walk [.DP \edge[roof]; {my dog} ]
+      ]%V'
+      ]%VP
+      ]%T'
+      ]%TP
+      ]%C'
+      ]%CP
+      ]%V'
+      ]%VP
+    ]
+    ]%TP
+    ]%C'
+    ]%CP
+  ]%V'
+  ]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\draw[dashed,->] (traceT)..controls +(south:2) and +(south:2)..(v);
+  \draw[semithick,->] (specTry)..controls +(south:1) and +(south:1)..(specTP);
+  \draw[semithick,->] (specWant)..controls +(south:1) and +(south:1)..(specToWant);
+	\draw[semithick,->] (specWalk)..controls +(south:1) and +(south:1)..(specToWalk);
+
+
+  \end{tikzpicture}}
+
+  \pagebreak
+  
+  % I persuaded Kim to appear to walk my dog.
+	\item Deep Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+  {\tiny \Tree
+  [.CP {}
+  [.C' C\\$\emptyset_{[-Q]}$
+  [.TP {}
+  [.T' \node(traceT){T\\-ed};
+  [.VP [.DP$_{i}$ \edge[roof]; \node(specTP){I}; ]
+  [.V' \node(v){V\\persuade}; [.DP \edge[roof]; Kim$_{j}$ ]
+    [.CP {} %{PRO} to want
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP {}
+    [.T' T\\to
+      [.VP {}
+      [.V' V\\appear
+      [.CP {} %{PRO} to walk my dog
+      [.C' C\\$\emptyset_{[-Q]}$
+      [.TP {}
+      [.T' T\\to
+      [.VP [.DP$_{j}$ \edge[roof]; \node(specToWalk){PRO}; ]
+      [.V' V\\walk [.DP \edge[roof]; {my dog} ]
+      ]%V'
+      ]%VP
+      ]%T'
+      ]%TP
+      ]%C'
+      ]%CP
+      ]%V'
+      ]%VP
+    ]
+    ]%TP
+    ]%C'
+    ]%CP
+  ]%V'
+  ]%VP
+  ]%T'
+  ]%TP
+  ]%C'
+  ]%CP
+  }
+	\end{tikzpicture}}
+
+
+  % I persuaded Kim to appear to walk my dog.
+  \noindent Surface Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\tiny \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP [.DP$_{i}$ \edge[roof]; \node(specTP){I}; ]
+  [.T' \node(traceT){T};
+  [.VP \node(specTry){t$_{i}$};
+  [.V' \node(v){V\\persuade-ed}; [.DP \edge[roof]; Kim$_{j}$ ]
+    [.CP {} %{PRO} to want
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP [.DP$_{j}$ \edge[roof]; \node(specToAppear){PRO}; ]
+    [.T' T\\to
+      [.VP {}
+      [.V' V\\appear
+      [.CP {} %{PRO} to walk my dog
+      [.C' C\\$\emptyset_{[-Q]}$
+      [.TP \node(specToWalk){t$_{j}$};
+      [.T' T\\to
+      [.VP \node(specWalk){t$_{j}$};
+      [.V' V\\walk [.DP \edge[roof]; {my dog} ]
+      ]%V'
+      ]%VP
+      ]%T'
+      ]%TP
+      ]%C'
+      ]%CP
+      ]%V'
+      ]%VP
+    ]
+    ]%TP
+    ]%C'
+    ]%CP
+  ]%V'
+  ]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+	\draw[dashed,->] (traceT)..controls +(south:2) and +(south:2)..(v);
+  \draw[semithick,->] (specTry)..controls +(south:1) and +(south:1)..(specTP);
+  \draw[semithick,->] (specWalk)..controls +(south:1) and +(south:1)..(specToWalk);
+  \draw[semithick,->] (specToWalk)..controls +(south:2) and +(south:2)..(specToAppear);
+
+
+  \end{tikzpicture}}
+
+  \pagebreak
+
+  \tikzset{level distance=30pt,
+  sibling distance=6pt,
+  }
+
+  % We will hope for him to return.
+	\item Deep Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\small \Tree
+    [.CP {}
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP {}
+    [.T' T\\will
+    [.VP [.DP$_{i}$ \edge[roof]; \node(specTP){We}; ]
+    [.V' V\\hope
+      [.CP {}
+      [.C' C\\for
+      [.TP {}
+      [.T' T\\to
+        [.VP [.DP$_{j}$ \edge[roof]; \node(specToReturn){him}; ]
+        [.V' V\\return. {}
+        ]%V'
+        ]%VP
+      ]
+      ]%TP
+      ]%C'
+      ]%CP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+	\end{tikzpicture}}
+
+	\pagebreak
+
+	% We will hope for him to return.
+  \noindent Surface Structure\\
+	\bigskip
+	\leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+	%\begin{landscape}
+	\noindent{\begin{tikzpicture}
+	{\small \Tree
+	[.CP {}
+	[.C' C\\$\emptyset_{[-Q]}$
+	[.TP [.DP$_{i}$ \edge[roof]; \node(specTP){We}; ]
+  [.T' T\\will
+  [.VP \node(specTry){t$_{i}$};
+  [.V' V\\hope
+    [.CP {}
+    [.C' C\\for
+    [.TP [.DP$_{j}$ \edge[roof]; \node(specToReturn){him}; ]
+    [.T' T\\to
+      [.VP \node(specReturn){t$_{j}$};
+      [.V' V\\return. {}
+      ]%V'
+      ]%VP
+    ]
+    ]%TP
+    ]%C'
+    ]%CP
+  ]%V'
+  ]%VP
+	]%T'
+	]%TP
+	]%C'
+	]%CP
+	}
+  \draw[semithick,->] (specTry)..controls +(south:2) and +(south:2)..(specTP);
+	\draw[semithick,->] (specReturn)..controls +(south:2) and +(south:2)..(specToReturn);
+
+
+  \end{tikzpicture}}
+
+  \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

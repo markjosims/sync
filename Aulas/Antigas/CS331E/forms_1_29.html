@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Forms</title>
+</head>
+<body>
+	<!-- Radio Button -->
+	<form name="form1">
+		<input type="checkbox" id="box1"/>
+		<input type="button" value="Press" onClick="validator()"/>
+	</form>
+	<form>
+		<select id ="mySelect">
+			<option value="apple">Apple</option>
+			<option value="orange">Orange</option>
+			<option value="pineapple">Pineapple</option>
+			<option value="banana">Banana</option>
+		</select>
+	</form>
+	<form>
+		Username: <input type="text" id="username"> <br>
+		Password: <input type="text" id="password"> <br>
+	</form>
+	<form>
+		What color do you prefer?<br>
+		<input type="radio" name="colors" id="red">Red<br>
+		<input type="radio" name="colors" id="blue">Blue
+	</form>
+	<script type="text/javascript">
+
+	function validator() {
+		if (document.getElementById("box1").checked) {
+			alert("You have checked the box!")
+		}
+		else {
+			alert("You have NOT checked the box!")
+		}
+	}
+	</script>
+</body>
+</html>

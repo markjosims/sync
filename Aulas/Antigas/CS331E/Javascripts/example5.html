@@ -1,0 +1,36 @@
+<!--
+http://www.w3schools.com/css/css_intro.asp
+http://www.w3schools.com/html/html_intro.asp
+http://www.w3schools.com/js/js_intro.asp
+-->
+<html>
+	<head>
+		<title>
+			<title>Example 5</title>
+		</title>
+		<script type="text/javascript">
+			function changeHeading() {
+				var text = document.getElementById("new_text").value;
+				<!--The innerHTML property sets or returns the HTML content (inner HTML) of an element. -->
+				document.getElementById("first").innerHTML = text;
+			}
+		</script>
+		<!-- For external javascript files:
+			<script src="filename.js"> </script>
+		-->
+	</head>
+	<body>
+		<div id="heading1">
+			<h1 id="first"> Heading 1 </h1>
+			<form>
+				<input type="text" id="new_text" />
+				<input type="button" id="submit_button" value="Change Heading 1" onclick="changeHeading()"/>
+			</form>
+		</div>
+	</body>
+</html>
+
+<!-- 
+The innerHTML property can be used along with getElementById() within your JavaScript code to refer to an HTML element and change its contents.
+source: http://www.quackit.com/javascript/tutorial/innerhtml_in_javascript.cfm
+-->

@@ -1,0 +1,499 @@
+\documentclass[a4paper, 11pt]{article}
+% MLA format
+\usepackage[letterpaper]{geometry}
+%\usepackage{times}
+\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{} 
+\chead{} 
+\rhead{Simmons \thepage} 
+\lfoot{} 
+\cfoot{} 
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt} 
+
+%\usepackage{mdwlist}
+\usepackage{enumitem}
+\setlist{  
+    listparindent=\parindent,
+    parsep=0pt,
+}
+\title{Final}
+\author{Mark Simmons}
+\date{May 15, 2020}
+
+
+% Typing in IPA
+\usepackage{tipa}
+
+% Sentence trees
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{lscape}
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{tree-dvips}
+\tikzset{level distance=15pt,
+sibling distance=3pt,
+every tree node/.style={align=center},
+}
+
+% Glosses
+\usepackage{linguex}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+
+\item \textbf{Technical}
+
+    \begin{enumerate}[label=(\alph*)]
+    \item
+    \begin{enumerate}[label=\roman*.]
+    \item
+    % Which Lego toys was Ezra told to play with?
+    \noindent Deep Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+        {\tiny \Tree
+        [.CP {}
+        [.C' -$\emptyset_{[+Q +wh]}$
+        [.TP {}
+        [.T' T\\-ed
+        [.VP {} % be told
+        [.V' V\\be
+          [.VP {} % told
+          [.V' V\\told [.DP$_{j}$ \edge[roof]; \node(specTP){Ezra}; ]
+            [.CP {}
+                [.C' C\\$\emptyset_{[-Q]}$
+                    [.TP {}
+                    [.T' T\\to
+                        [.VP [.DP$_{j}$ \edge[roof]; \node(specToPlay){PRO}; ]
+                        [.V' V\\play
+                        [.PP {}
+                        [.P' P\\with [.DP$_{i}$ \edge[roof]; \node(specCP){which Lego toys}; ]
+                        ]%P'
+                        ]%PP
+                        ]%V'
+                        ]%VP
+                    ]%T'
+                    ]%TP
+                ]%C;
+            ]%CP
+          ]%V'
+          ]%VP
+        ]%V'
+        ]%VP
+        ]%T'
+        ]%TP
+        ]%C'
+        ]%CP
+        }
+    \end{tikzpicture}}
+
+    \pagebreak
+
+    % Which Lego toys was Ezra told to play with?
+    \item \noindent Surface Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\tiny \Tree
+    [.CP [.DP$_{i}$ \edge[roof]; \node(specCP){Which Lego toys}; ]
+    [.C' \node(vC){C\\be-ed-$\emptyset_{[+Q]}$};
+    [.TP [.DP$_{j}$ \edge[roof]; \node(specTP){Ezra}; ]
+    [.T' \node(traceT){T};
+    [.VP {} % be told
+    [.V' \node(specBeTold){t};
+      [.VP {} % told
+      [.V' V\\told \node(objTrace){t$_{j}$};
+        [.CP \node(lowerSpecCP){t$_{i}$};
+            [.C' C\\$\emptyset_{[-Q]}$
+                [.TP [.DP \edge[roof]; \node(specToPlay){PRO$_{j}$}; ]
+                [.T' T\\to
+                    [.VP \node(specPlay){t$_{j}$}; % play
+                    [.V' V\\play
+                    [.PP {}
+                    [.P' P\\with \node(whTrace){t$_{i}$};
+                    ]%P'
+                    ]%PP
+                    ]%V'
+                    ]%VP
+                ]%T'
+                ]%TP
+            ]%C;
+        ]%CP
+      ]%V'
+      ]%VP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \draw[dashed,->] (traceT)..controls +(south:3) and +(south:3)..(vC);
+    \draw[dashed,->] (specBeTold)..controls +(south:2) and +(south:1)..(traceT);
+    \draw[semithick,->] (objTrace)..controls +(south:2) and +(south:2)..(specTP);
+    \draw[semithick,->] (specPlay)..controls +(south:2) and +(south:2)..(specToPlay);
+    \draw[dotted,->] (whTrace)..controls +(south:5) and +(south:5)..(lowerSpecCP);
+    \draw[dotted,->] (lowerSpecCP)..controls +(south:5) and +(south:5)..(specCP);
+    \end{tikzpicture}}
+
+    \item Theta Bois\\
+    \emph{tell-en ($\rightarrow$ told)}\\
+    \begin{tabular}{ |c|c|c| } 
+        \hline
+        \underline{agent} & patient & proposition \\ 
+        DP & DP & CP  \\ 
+        \hline
+        -en & i & j \\ 
+        \hline
+    \end{tabular}
+    \vspace{5mm}\\
+    \emph{play}\\
+    \begin{tabular}{ |c|c| } 
+        \hline
+        \underline{agent} & theme \\ 
+        DP & PP  \\ 
+        \hline
+        k & l \\ 
+        \hline
+    \end{tabular}
+    \vspace{5mm}\\
+    Which Lego toys was [Ezra]$_{i}$ told [PRO$_{k}$ to play [with \emph{t}]$_{l}$]$_{j}$?
+
+    \item Case Filter
+    \begin{itemize}
+        \item \emph{Ezra} This DP is assigned [+\emph{u}NOM] by the verb \emph{told}. Since the
+        passive verb told cannot check [+\emph{u}NOM], it moves to spec of TP position to check
+        this case.
+        \item \emph{which Lego toys} the DP is assigned [+\emph{u}ACC] by the preposition
+        \emph{with}. When Case Filter is applied, this DP is still in the PP, so the preposition
+        \emph{with} checks its case feature before undergoing \emph{wh}-movement.
+    \end{itemize}
+
+    \item Stranded Affix Filter
+    \begin{itemize}
+        \item \emph{-ed} This affix attaches to the verb \emph{be} when \emph{be} raises to T position.
+        \item \emph{$\emptyset_{[+Q]}$} This affix attaches to the verb \emph{be} when \emph{be} raises
+        to C position (after picking up \emph{-ed} at T).
+    \end{itemize} 
+
+    \item EPP
+    \begin{itemize}
+        \item In the matrix clause (\emph{Which Lego toys was Ezra told}), the object of the verb
+        \emph{told}, \emph{Ezra}, raises to spec-TP position to satisfy the EPP.
+        \item In the embedded clause (\emph{PRO to play with t}), the subject of the verb play,
+        PRO, raises to spec-TP position to satisfy the EPP.
+    \end{itemize} 
+
+    \item MLC\\
+    The wh-phrase \emph{which Lego toys} raises to the nearest landing spot, which is
+    spec-CP of its original clause (with lexical verb
+    \emph{play}) in order to satisfy the MLC, then it raises again to the spec-CP
+    position of the 
+    clause above it (with lexical verb \emph{told}), where it appears in SS.
+
+    \end{enumerate}
+
+    \pagebreak
+
+    \item
+    % Morrissey seemed to wonder when it rained.
+    \noindent Deep Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\tiny \Tree
+    [.CP {}
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP {}
+    [.T' T\\-ed
+    [.VP {} % seemed
+    [.V' \node(vSeem){V\\seem};
+        [.CP {}
+        [.C' C\\$\emptyset_{[-Q]}$
+        [.TP {}
+        [.T' T\\to
+        [.VP [.DP \edge[roof]; \node(specTP){Morrissey}; ]
+        [.V' V\\wonder
+            [.CP {}
+                [.C' C\\$\emptyset_{[-Q +wh]}$
+                    [.TP {}
+                    [.T' T\\-ed
+                        [.VP {} % rain
+                        [.V'
+                            [.V' \node(vRain){rain}; {} ]
+                            [.AdvP \edge[roof]; \node(specCP){when}; ]
+                        ]%V'
+                        ]%VP
+                    ]%T'
+                    ]%TP
+                ]%C;
+            ]%CP
+        ]%V'
+        ]%VP
+        ]%T'
+        ]%TP
+        ]%C'
+        ]%CP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \end{tikzpicture}}
+
+    \pagebreak
+
+    % Morrissey seemed to wonder when it rained.
+    \noindent Surface Structure\\
+    \bigskip
+    \leavevmode\vadjust{\vspace{-\baselineskip}}\newline
+    %\begin{landscape}
+    \noindent{\begin{tikzpicture}
+    {\tiny \Tree
+    [.CP {}
+    [.C' C\\$\emptyset_{[-Q]}$
+    [.TP [.DP$_{i}$ \edge[roof]; \node(specTP){Morrissey}; ]
+    [.T' \node(traceT){T};
+    [.VP {} % seemed
+    [.V' \node(vSeem){V\\seem-ed};
+        [.CP {}
+        [.C' C\\$\emptyset_{[-Q]}$
+        [.TP \node(specToWonder){t$_{i}$};
+        [.T' T\\to
+        [.VP \node(specWonder){t$_{i}$};
+        [.V' V\\wonder
+            [.CP [.AdvP \edge[roof]; \node(specCP){when}; ]
+                [.C' $\emptyset_{[-Q, +wh]}$
+                    [.TP \fbox{it}
+                    [.T' \node(tRained){t};
+                        [.VP {} % rain
+                        [.V'
+                            [.V' \node(vRain){V\\rain-ed}; {} ]
+                            \node(whTrace){t};
+                        ]%V'
+                        ]%VP
+                    ]%T'
+                    ]%TP
+                ]%C;
+            ]%CP
+        ]%V'
+        ]%VP
+        ]%T'
+        ]%TP
+        ]%C'
+        ]%CP
+    ]%V'
+    ]%VP
+    ]%T'
+    ]%TP
+    ]%C'
+    ]%CP
+    }
+    \draw[dashed,->] (traceT)..controls +(south:2) and +(south:2)..(vSeem);
+    \draw[dashed,->] (tRained)..controls +(south:2) and +(south:1)..(vRain);
+    \draw[dotted,->] (whTrace)..controls +(south:5) and +(south:5)..(specCP);
+    \draw[semithick,->] (specToWonder)..controls +(south:2) and +(south:4)..(specTP);
+    \draw[semithick,->] (specWonder)..controls +(south:2) and +(south:2)..(specToWonder);
+    \end{tikzpicture}}
+
+    \pagebreak
+
+    \item Theta Bois\\
+    \emph{wonder}\\
+    \begin{tabular}{ |c|c|c| } 
+        \hline
+        \underline{agent}  & proposition \\ 
+        DP & CP  \\ 
+        \hline
+        i & j \\ 
+        \hline
+    \end{tabular}
+    \vspace{5mm}\\
+
+    [Morrissey]$_{i}$ seemed to t$_{i}$ wonder [when it would rain.]$_{j}$
+
+    \item Case Filter
+    \begin{itemize}
+        \item \emph{Morrissey} This DP is assigned [+\emph{u}NOM] by the verb \emph{wonder}. Since
+        the infinitive verb \emph{to wonder} cannot check for Nominative case, the DP moves to spec of
+        TP in the above clause, which, being a tensed clause, can check for Nominative.
+    \end{itemize}
+
+    \item Stranded Affix Filter
+    \begin{itemize}
+        \item \emph{-ed} This affix lowers to the verb \emph{seem}.
+    \end{itemize} 
+
+    \item EPP
+    \begin{itemize}
+        \item In the matrix clause (\emph{Morrissey seemed}), the EPP is satisfied by the DP
+        \emph{Morrissey}, which 
+        \item In the embedded clause (\emph{to wonder}), the EPP is satisfied by the trace
+        \emph{Morrissey} left in spec-TP before raising to the matrix clause.
+        \item In the lowermost embedded clause (\emph{when it rained}), the EPP is satisfied by the
+        expletive pronoun \emph{it} which is inserted into spec-TP position at SS.
+    \end{itemize} 
+
+    \item MLC\\
+    The wh-phrase \emph{when} moves to the nearest landing spot, which is
+    spec-CP position of its local clause, and remains there at SS,
+    satisfying the MLC.
+
+    \end{enumerate}
+
+\item \textbf{Argumentation}
+
+In English, \emph{wh}-pronouns are used to create both content questions and relative clauses.
+The pronoun in content questions undergoes \emph{wh}-movement, which raises it to spec-CP position
+for whatever CP is marked with the [+wh].
+
+\ex.
+    \a. Joe saw him.
+    \b. Who did Joe see?
+    \c. The man who Joe saw is over there.
+
+In (1b), the accusative pronoun corresponding to \emph{him} in (1a) has been moved to spec-CP,
+and for this reason it appears before the subject \emph{Joe}. In (1c) the same pronoun appears
+again in spec-CP position, but this time within an embedded relative clause.
+I propose that relative pronouns in English undergo \emph{wh}-movement of the same sort seen
+in content questions, triggered by the [+wh, -Q] features marked on the relative clause. To argue
+this, I will show that relative clauses are subject to the same ``Island Constraints'' as content
+questions.
+
+As observed above, a relative pronoun can raise to spec-CP from a lower place within the clause.
+It can also raise from an embedded clause to spec-CP of the clause above, as it does in (2b).
+
+\ex.
+    \a. I bought [$_{DP}$ the book 
+        [$_{CP}$ which$_{i}$ Suzuka hates $t_{i}$  ] 
+    ].
+    \b. I bought [$_{DP}$ the book 
+        [$_{CP}$ which$_{i}$ Moa said
+            [$_{CP}$ Suzuka hates $t_{i}$ ]
+        ]
+    ].
+
+It can also raise recursively.
+
+\ex. I bought [$_{DP}$ the book 
+[$_{CP}$ which$_{i}$ Jimmy wonders
+    [$_{CP}$ if Mao said 
+        [$_{CP}$ Suzuka hates $t_{i}$ ]
+    ]
+]
+].
+
+However, the relative pronoun cannot raise from a clause that has a \emph{wh}-element in spec-CP,
+such as the embedded indirect question in (4).
+
+\ex. *I bought [$_{DP}$ the book 
+    [$_{CP}$ which$_{i}$ Bonzo wonders who$_{j}$
+        [$_{CP}$ $t_{j}$ thought 
+            [$_{CP}$ Robert hates $t_{i}$ ]
+        ]
+    ]
+].
+
+We can correctly predict (4) to be ungrammatical if we assume that the relative pronoun undergoes
+\emph{wh}-movement, in which case (4) would violate the \emph{Wh}-Island constraint.
+
+Likewise, relative pronouns cannot raise from within the subject of the relative clause.
+
+\ex. *I saw [$_{DP}$ the guy
+    [$_{CP}$ who$_{i}$
+        [$_{CP}$ that Stevie is dating $t_{i}$
+            ]
+        annoys Lindsey
+        ]
+    ].
+
+In (5), the CP \emph{that Stevie is dating} is the subject of the relative clause. Raising the
+relative pronoun from within this CP produces an ungrammatical sentence, suggesting that it
+violates the Subject-Island constraint.
+
+Relative clauses that raise a pronoun from a clause introduced by \emph{that} have dubious
+acceptability.
+
+\ex.
+    \a. ??I bought [$_{DP}$ the book 
+        [$_{CP}$ which$_{i}$ The Edge denied my claim
+            [$_{CP}$ that Bono read $t_{i}$ today
+            ]
+        ]
+    ].
+    \b. ??I bought [$_{DP}$ the book 
+        [$_{CP}$ which$_{i}$ Brian said
+            [$_{CP}$ that $t_{i}$ offended Freddie
+            ]
+        ]
+    ].
+
+These sentences match the conditions for a \emph{That-trace} Island in \emph{wh}-movement.
+
+Finally, raising a relative pronoun from the adjunct position is not consistently acceptable for
+English speakers.
+
+\ex. ??I bought [$_{DP}$ the book 
+    [$_{CP}$ which$_{i}$ Stanton stole a newspaper near $t_{i}$ ]
+].
+
+It is possible that the sentence is less than acceptable because it violates the Adjunct Island
+constraint.
+
+Thus, relative pronouns appear to obey the same Island Constraints that \emph{wh}-phrases in
+content questions observe. This indicates that relative pronouns raise by \emph{wh}-movement,
+otherwise we would expect different constraints to affect relative pronoun raising than
+those observed in the data.
+
+\item \textbf{Reflection}
+
+I learned a lot about how language structure can be described using a generative, tree-based model.
+Obviously, that was the point of the class. But I think it's important to note that I came into
+this class with a little familiarity with generative models of syntax, and a whole lot of skepticism
+as to their explanatory power. This class repeatedly surprised me with not only how much our model
+was able to explain English data, but how readily it could be applied to other languages. I enjoyed
+the second half a lot, because it answered many questions I had as far as how verbs select arguments
+and how embedded clauses are formed.
+
+\item \textbf{BONUS}\\ Those legos he was playing with in class the other day, I think they
+were called ``Nexo Knights''?
+\item \textbf{BONUS}
+\begin{enumerate}[label=\arabic*.]
+    \setcounter{enumii}{5}
+    \item Entailed
+    \item Entailed. Even if ``untied'' has a nonliteral sense in (7a), the same 
+    sense could be applied to (7b).
+    \item Entailed
+    \item Not implied. Typically when someone says ``alleged'' outside of a legalistic
+    context, I understand they do not themselves believe the alleged claim, so I would not
+    expect meeting an ``alleged communist'' presupposes meeting an actual communist.
+    \item Entailed
+    \item Not implied. At least, Gawker is not presupposed any more than Z Magazine is.
+    \item Presupposed. If I reported that David agreed to eat breakfast, it could have
+    the implication that David agrees to whatever circumstances I/anyone else decide,
+    which is not entailed by agreeing to breakfast only at 8:00.
+    \item Not implied
+    \item The maxim of quantity.
+    \item The maxim of relevance.
+    \item The maxim of quality.
+    \item The maxim of quantity.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
