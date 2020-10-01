@@ -1,0 +1,12 @@
+{
+  "global": { "predicate": "or", "regex": null },
+  "ndb_rc_m05": { "exclude": false, "regex": "\u0330" },
+  "ndb_rn_m05": { "exclude": false, "regex": "\u0330" },
+  "ndb_rc_eppsob": { "exclude": false, "regex": "\u02bc" },
+  "daw_eppsob": { "exclude": true, "regex": "" },
+  "daw_m05": { "exclude": true, "regex": "" },
+  "hup_ramepps": { "exclude": true, "regex": "" },
+  "hup_m05": { "exclude": true, "regex": "" },
+  "yhp_silva": { "exclude": true, "regex": "" },
+  "yhp_m05": { "exclude": true, "regex": "" }
+}
