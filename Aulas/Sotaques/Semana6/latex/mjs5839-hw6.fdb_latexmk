@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1601651251 "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.tex" "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.pdf" "mjs5839-hw6" 1601651252
+["pdflatex"] 1601678924 "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.tex" "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.pdf" "mjs5839-hw6" 1601678924
   "/etc/texmf/web2c/texmf.cnf" 1601574953 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.aux" 1601651251 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.tex" 1601651251 3772 143d201d68da99ba0bbce1c7b24b676c ""
+  "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.aux" 1601678924 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.tex" 1601678923 3914 97ed318ebf3309848eb99175d031ad78 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1480098701 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1480098701 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
@@ -37,11 +37,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1601575422 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1601575432 4131240 66efcad74d7b1125de958b629c070b3f ""
-  "mjs5839-hw6.aux" 1601651251 8 a94a2480d3289e625eea47cd1b285758 ""
-  "mjs5839-hw6.tex" 1601651251 3772 143d201d68da99ba0bbce1c7b24b676c ""
+  "mjs5839-hw6.aux" 1601678924 8 a94a2480d3289e625eea47cd1b285758 ""
+  "mjs5839-hw6.tex" 1601678923 3914 97ed318ebf3309848eb99175d031ad78 ""
   (generated)
-  "mjs5839-hw6.aux"
-  "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.log"
+  "mjs5839-hw6.pdf"
   "mjs5839-hw6.log"
   "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.pdf"
-  "mjs5839-hw6.pdf"
+  "/home/marks/sync/Aulas/Sotaques/Semana6/latex/mjs5839-hw6.log"
+  "mjs5839-hw6.aux"
