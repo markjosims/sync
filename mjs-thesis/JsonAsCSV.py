@@ -11,7 +11,7 @@ def main():
     df = pd.DataFrame(columns=[
         "gloss_pt", "gloss_en",
         "mbj_rc_m05", "mbj_rc_eppsob", "mbj_rn_m05",
-        "daw_m05", "daw_eppsob", "daw_orth_epps",
+        "daw_m05", "daw_eppsob",
         "hup_m05", "hup_ramepps",
         "yhp_m05", "yhp_silva"
     ])
@@ -21,10 +21,10 @@ def main():
         for key, val in entry.items():
             if key in ('gloss_pt', 'gloss_en'):
                 row[key] = val
-            elif key == 'note':
+            elif key in ('note', 'daw_orth_epps'):
                 pass
             else:
-                row[key] = val['lexeme']
+                row[key] = val['pht']
         df.loc[len(df)] = row
 
     df.to_csv(csv_file, encoding='utf8', index=False)
