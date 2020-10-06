@@ -1,3 +1,6 @@
-*.pdf
-*.wav
+*.pdf*
+*.wav*
+*.mp4*
+*.mkv*
+*.mov*
 **/word_wavs
