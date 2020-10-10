@@ -11,9 +11,9 @@ def main():
     df = pd.DataFrame(columns=[
         "gloss_pt", "gloss_en",
         "mbj_rc_m05", "mbj_rc_eppsob", "mbj_rn_m05",
-        "daw_m05", "daw_eppsob",
-        "hup_m05", "hup_ramepps",
-        "yhp_m05", "yhp_silva"
+        "daw_m05", "daw_eppsob", "daw_eppsob_pht",
+        "hup_m05", "hup_ramepps", "hup_ramepps_pht",
+        "yhp_m05", "yhp_silva", "yhp_silva_pht"
     ])
 
     for entry in json_obj['data']:
@@ -24,7 +24,8 @@ def main():
             elif key in ('note', 'daw_orth_epps'):
                 pass
             else:
-                row[key] = val['pht']
+                row[key] = val['lexeme']
+                row[key+'_pht'] = val['pht']
         df.loc[len(df)] = row
 
     df.to_csv(csv_file, encoding='utf8', index=False)
